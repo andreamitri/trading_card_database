@@ -30,3 +30,19 @@ VALUES
     ('Football Player', 'Professional football player cards')
 RETURNING type_id, type_name;
 
+INSERT INTO cards
+    (set_id, type_id, card_name, card_number, rarity, release_date)
+VALUES
+    (1, 1, 'Charizard', '4/102', 'Rare Holo', '1999-01-09'),
+    (1, 1, 'Pikachu', '58/102', 'Common', '1999-01-09'),
+    (1, 1, 'Blastoise', '2/102', 'Rare Holo', '1999-01-09'),
+    (1, 1, 'Venusaur', '15/102', 'Rare Holo', '1999-01-09'),
+    (2, 1, 'Miraidon ex', '81/198', 'Double Rare', '2023-03-31'),
+    (2, 2, 'Professor Research', '189/198', 'Uncommon', '2023-03-31'),
+    (3, 3, 'Spider-Man', '1', 'Rare', '2011-01-01'),
+    (3, 3, 'Iron Man', '2', 'Rare', '2011-01-01'),
+    (4, 4, 'Thanos', '10', 'Ultra Rare', '2022-01-01'),
+    (4, 3, 'Captain America', '11', 'Rare', '2022-01-01'),
+    (5, 5, 'Lionel Messi', '10', 'Rare', '2022-01-01'),
+    (5, 5, 'Kylian Mbappe', '7', 'Rare', '2022-01-01')
+RETURNING card_id, card_name, set_id, type_id;
