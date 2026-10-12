@@ -90,3 +90,17 @@ VALUES
     (12, 'Excellent', 3, 30.00, 55.00,
      'Binder D', '2025-07-20', 'Kylian Mbappe')
 RETURNING collection_item_id, card_id, quantity;
+
+
+
+INSERT INTO decks (deck_name, description)
+VALUES
+    ('Classic Pokemon Deck',
+     'A collection of classic Pokemon cards.'),
+
+    ('Scarlet and Violet Deck',
+     'A deck featuring Pokemon and Trainer cards.'),
+
+    ('Marvel Heroes Deck',
+     'A collection of Marvel superhero cards.')
+RETURNING deck_id, deck_name;
