@@ -46,3 +46,47 @@ VALUES
     (5, 5, 'Lionel Messi', '10', 'Rare', '2022-01-01'),
     (5, 5, 'Kylian Mbappe', '7', 'Rare', '2022-01-01')
 RETURNING card_id, card_name, set_id, type_id;
+
+
+
+INSERT INTO collection_items
+    (card_id, card_condition, quantity,
+     purchase_price, estimated_value,
+     storage_location, acquired_date, notes)
+VALUES
+    (1, 'Near Mint', 1, 150.00, 250.00,
+     'Binder A', '2025-01-15', 'Charizard'),
+
+    (2, 'Excellent', 3, 5.00, 8.00,
+     'Binder A', '2025-02-10', 'Pikachu'),
+
+    (3, 'Near Mint', 1, 80.00, 120.00,
+     'Binder A', '2025-03-05', 'Blastoise'),
+
+    (4, 'Good', 2, 40.00, 65.00,
+     'Binder B', '2025-03-20', 'Venusaur'),
+
+    (5, 'Near Mint', 2, 15.00, 25.00,
+     'Binder B', '2025-04-01', 'Miraidon ex'),
+
+    (6, 'Mint', 4, 2.00, 3.50,
+     'Deck Box A', '2025-04-15', 'Trainer cards'),
+
+    (7, 'Near Mint', 1, 30.00, 45.00,
+     'Binder C', '2025-05-01', 'Spider-Man'),
+
+    (8, 'Excellent', 2, 20.00, 35.00,
+     'Binder C', '2025-05-12', 'Iron Man'),
+
+    (9, 'Mint', 1, 100.00, 160.00,
+     'Display Case', '2025-06-01', 'Thanos'),
+
+    (10, 'Near Mint', 1, 25.00, 40.00,
+     'Binder C', '2025-06-15', 'Captain America'),
+
+    (11, 'Near Mint', 2, 50.00, 75.00,
+     'Binder D', '2025-07-01', 'Lionel Messi'),
+
+    (12, 'Excellent', 3, 30.00, 55.00,
+     'Binder D', '2025-07-20', 'Kylian Mbappe')
+RETURNING collection_item_id, card_id, quantity;
