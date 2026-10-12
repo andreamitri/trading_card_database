@@ -104,3 +104,17 @@ VALUES
     ('Marvel Heroes Deck',
      'A collection of Marvel superhero cards.')
 RETURNING deck_id, deck_name;
+
+
+INSERT INTO deck_cards (deck_id, card_id, quantity, notes)
+VALUES
+    (1, 1, 1, 'Charizard'),
+    (1, 2, 3, 'Pikachu'),
+    (1, 3, 1, 'Blastoise'),
+    (1, 4, 2, 'Venusaur'),
+    (2, 5, 2, 'Miraidon ex'),
+    (2, 6, 4, 'Professor Research'),
+    (3, 7, 1, 'Spider-Man'),
+    (3, 8, 2, 'Iron Man'),
+    (3, 10, 1, 'Captain America')
+RETURNING deck_id, card_id, quantity;
