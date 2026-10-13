@@ -1,3 +1,4 @@
+-- Query 1: Display cards with their sets using INNER JOIN.
 SELECT
     c.card_id,
     c.card_name,
