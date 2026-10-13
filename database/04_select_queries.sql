@@ -19,3 +19,9 @@ INNER JOIN card_sets AS s
     ON c.set_id = s.set_id
 GROUP BY s.franchise
 ORDER BY total_cards DESC;
+
+-- Query 3: Calculate total cards owned using SUM.
+
+SELECT
+    SUM(quantity) AS total_cards_owned
+FROM collection_items;
