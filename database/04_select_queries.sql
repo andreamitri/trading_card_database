@@ -25,3 +25,9 @@ ORDER BY total_cards DESC;
 SELECT
     SUM(quantity) AS total_cards_owned
 FROM collection_items;
+
+-- Query 4: Calculate average estimated value using AVG.
+
+SELECT
+    ROUND(AVG(estimated_value), 2) AS average_estimated_value
+FROM collection_items;
