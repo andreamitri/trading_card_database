@@ -43,3 +43,18 @@ INNER JOIN cards AS c
 GROUP BY s.set_id, s.set_name
 HAVING COUNT(c.card_id) > 1
 ORDER BY total_cards DESC, s.set_name;
+
+-- Query 6: Find cards with an estimated value above the average.
+
+SELECT
+    c.card_name,
+    ci.card_condition,
+    ci.estimated_value
+FROM collection_items AS ci
+INNER JOIN cards AS c
+    ON ci.card_id = c.card_id
+WHERE ci.estimated_value > (
+    SELECT AVG(estimated_value)
+    FROM collection_items
+)
+ORDER BY ci.estimated_value DESC;
