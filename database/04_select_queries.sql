@@ -8,3 +8,14 @@ FROM cards AS c
 INNER JOIN card_sets AS s
     ON c.set_id = s.set_id
 ORDER BY c.card_id;
+
+-- Query 2: Count cards by franchise using COUNT, JOIN and GROUP BY.
+
+SELECT
+    s.franchise,
+    COUNT(c.card_id) AS total_cards
+FROM cards AS c
+INNER JOIN card_sets AS s
+    ON c.set_id = s.set_id
+GROUP BY s.franchise
+ORDER BY total_cards DESC;
