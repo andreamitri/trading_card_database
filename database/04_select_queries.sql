@@ -58,3 +58,17 @@ WHERE ci.estimated_value > (
     FROM collection_items
 )
 ORDER BY ci.estimated_value DESC;
+
+-- Query 7: Calculate total collection value by franchise.
+
+SELECT
+    s.franchise,
+    ROUND(SUM(ci.quantity * ci.estimated_value), 2)
+        AS total_collection_value
+FROM collection_items AS ci
+INNER JOIN cards AS c
+    ON ci.card_id = c.card_id
+INNER JOIN card_sets AS s
+    ON c.set_id = s.set_id
+GROUP BY s.franchise
+ORDER BY total_collection_value DESC;
