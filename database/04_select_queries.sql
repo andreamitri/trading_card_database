@@ -31,3 +31,15 @@ FROM collection_items;
 SELECT
     ROUND(AVG(estimated_value), 2) AS average_estimated_value
 FROM collection_items;
+
+-- Query 5: Find card sets containing more than one card.
+
+SELECT
+    s.set_name,
+    COUNT(c.card_id) AS total_cards
+FROM card_sets AS s
+INNER JOIN cards AS c
+    ON s.set_id = c.set_id
+GROUP BY s.set_id, s.set_name
+HAVING COUNT(c.card_id) > 1
+ORDER BY total_cards DESC, s.set_name;
