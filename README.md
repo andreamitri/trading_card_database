@@ -38,8 +38,6 @@ This demonstrates how existing information can be modified in the database.
 
 ### DELETE
 
-### DELETE
-
 I used a `DELETE` statement to demonstrate how records can be removed from the database.
 
 The script first inserts a temporary test record into `collection_items` and then deletes that record.
@@ -165,3 +163,17 @@ I practiced inserting, updating, and deleting records and writing SELECT queries
 I also learned how to use JOIN, aggregate functions, GROUP BY, HAVING, and subqueries to analyze the trading card collection.
 
 Git and GitHub were used to track the development of the project through separate commits.
+
+## Work Requirement 3 – Database Improvements
+
+### Third Normal Form (3NF) Review
+
+I reviewed the six tables in my trading card database to check whether they follow Third Normal Form (3NF).
+
+Each table has a primary key, and the columns contain individual values. The non-key columns depend on the keys rather than on other non-key columns.
+
+I separated card sets, card types, cards, collection items, and decks into different tables to avoid unnecessary duplication.
+
+The deck_cards table connects cards and decks using a composite primary key because they have a many-to-many relationship.
+
+Based on this review, the database follows 3NF, and no structural changes are needed.
