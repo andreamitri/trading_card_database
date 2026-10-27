@@ -7,7 +7,18 @@ WHERE card_id = 1
 RETURNING collection_item_id, card_id, estimated_value;
 
 
--- DELETE duplicate collection items (already executed in DBeaver).
--- DELETE FROM collection_items
--- WHERE collection_item_id BETWEEN 13 AND 24
--- RETURNING collection_item_id, card_id, quantity;
+-- DELETE operation: Insert a temporary test record and delete it.
+-- The transaction makes both operations run together.
+
+BEGIN;
+
+INSERT INTO collection_items
+    (card_id, quantity, notes)
+VALUES
+    (1, 1, 'Temporary DELETE test');
+
+DELETE FROM collection_items
+WHERE notes = 'Temporary DELETE test'
+RETURNING collection_item_id, card_id, quantity, notes;
+
+COMMIT;
