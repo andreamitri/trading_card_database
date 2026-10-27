@@ -38,9 +38,13 @@ This demonstrates how existing information can be modified in the database.
 
 ### DELETE
 
-I used a `DELETE` statement to remove duplicate collection records that were accidentally inserted during testing.
+### DELETE
 
-The executed DELETE statement is documented but commented out to prevent accidental deletion if the script is run again.
+I used a `DELETE` statement to demonstrate how records can be removed from the database.
+
+The script first inserts a temporary test record into `collection_items` and then deletes that record.
+
+This makes it possible to execute the DELETE operation again without removing the original collection data.
 
 SQL file: `database/03_update_delete.sql`
 
@@ -66,7 +70,7 @@ This query uses `COUNT()`, `GROUP BY`, and `INNER JOIN` to count the number of d
 
 Results:
 
-- Pokémon: 6 cards
+- Pokémon: 7 cards
 - Marvel: 4 cards
 - FIFA: 2 cards
 
@@ -92,7 +96,9 @@ Result: 75.54.
 
 This query uses `COUNT()`, `GROUP BY`, `HAVING`, and `INNER JOIN` to find card sets containing more than one card.
 
-The result shows five card sets.
+The database contains six card sets, but the query returns only five. The Pokémon promotional set contains exactly one card, so it is excluded by the `HAVING COUNT(c.card_id) > 1` condition.
+
+This demonstrates how HAVING filters grouped results.
 
 ![Query 5 – GROUP BY and HAVING](screenshots/query_05_group_by_having.png)
 
