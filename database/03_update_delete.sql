@@ -13,9 +13,9 @@ RETURNING collection_item_id, card_id, estimated_value;
 BEGIN;
 
 INSERT INTO collection_items
-    (card_id, quantity, notes)
+    (card_id, card_condition, quantity, notes)
 VALUES
-    (1, 1, 'Temporary DELETE test');
+    (1, 'Near Mint', 1, 'Temporary DELETE test');
 
 DELETE FROM collection_items
 WHERE notes = 'Temporary DELETE test'
