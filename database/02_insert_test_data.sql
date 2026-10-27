@@ -15,9 +15,10 @@ VALUES
     ('Marvel Masterpieces', 'Marvel', '2022-01-01',
      'Collectible Marvel character artwork cards.'),
     ('World Cup Qatar 2022', 'FIFA', '2022-01-01',
-     'Football trading cards from the 2022 World Cup.')
+     'Football trading cards from the 2022 World Cup.'),
+    ('Pokemon Promo Cards', 'Pokemon', '2024-01-01',
+     'A small promotional set containing one card.')
 RETURNING set_id, set_name;
-
 
 
 
@@ -44,7 +45,11 @@ VALUES
     (4, 4, 'Thanos', '10', 'Ultra Rare', '2022-01-01'),
     (4, 3, 'Captain America', '11', 'Rare', '2022-01-01'),
     (5, 5, 'Lionel Messi', '10', 'Rare', '2022-01-01'),
-    (5, 5, 'Kylian Mbappe', '7', 'Rare', '2022-01-01')
+    (5, 5, 'Kylian Mbappe', '7', 'Rare', '2022-01-01'),
+((SELECT set_id FROM card_sets
+  WHERE set_name = 'Pokemon Promo Cards'
+    AND franchise = 'Pokemon'),
+ 1, 'Pikachu Promo', 'PROMO-001', 'Promo', '2024-01-01')
 RETURNING card_id, card_name, set_id, type_id;
 
 
