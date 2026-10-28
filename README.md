@@ -232,3 +232,15 @@ This confirms that the role can read data but cannot modify it.
 SQL file: `database/07_roles_permissions.sql`
 
 ![Permission denied test](screenshots/role_permission_denied.png)
+
+## Database Backup
+
+I created a PostgreSQL backup of the `trading_card_collection` database using DBeaver.
+
+- **Backup file:** `trading_card_collection.backup`
+- **Format:** PostgreSQL Custom
+- **Contents:** All six tables, table data, primary and foreign keys, and the `idx_cards_card_name` index.
+
+I verified the backup using `pg_restore --list`, which confirmed that the expected database objects and data sections were included.
+
+The backup file is stored locally on my computer.
