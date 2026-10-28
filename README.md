@@ -177,3 +177,30 @@ I separated card sets, card types, cards, collection items, and decks into diffe
 The deck_cards table connects cards and decks using a composite primary key because they have a many-to-many relationship.
 
 Based on this review, the database follows 3NF, and no structural changes are needed.
+
+### Index and EXPLAIN ANALYZE
+
+I created an index on `cards(card_name)` and used `EXPLAIN ANALYZE` to compare the query before and after adding it.
+
+```sql
+SELECT *
+FROM cards
+WHERE card_name = 'Charizard';
+```
+
+| Measurement    | Before          | After           |
+| -------------- | --------------- | --------------- |
+| Scan type      | Sequential Scan | Sequential Scan |
+| Execution time | 1.921 ms        | 0.069 ms        |
+
+PostgreSQL used a sequential scan both times because the table only has 13 cards. The second test was faster, but the index was not used, so the improvement can't be attributed to it. The index may be useful with more data.
+
+SQL file: `database/05_create_index.sql`
+
+**Before index:**
+
+![Before index](screenshots/index_before.png)
+
+**After index:**
+
+![After index](screenshots/index_after.png)
