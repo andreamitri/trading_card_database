@@ -244,3 +244,11 @@ I created a PostgreSQL backup of the `trading_card_collection` database using DB
 I verified the backup using `pg_restore --list`, which confirmed that the expected database objects and data sections were included.
 
 The backup file is stored locally on my computer.
+
+### Backup Restoration Test
+
+I tested the PostgreSQL backup by restoring `trading_card_collection.backup` into a separate database named `trading_card_restore_test` using DBeaver.
+
+After restoring the backup, I verified that all six tables were present and that the `cards` table contained 13 records.
+
+The original `trading_card_collection` database was kept separate from the test restore.
