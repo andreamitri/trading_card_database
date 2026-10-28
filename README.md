@@ -218,3 +218,17 @@ The total remains 3 cards.
 SQL file: `database/06_transaction.sql`
 
 ![Transaction result](screenshots/transaction_result.png)
+
+### Roles and Permissions
+
+I created a read-only PostgreSQL role called `card_viewer`.
+
+The role has CONNECT permission on the database, USAGE permission on the public schema, and SELECT permission on all tables.
+
+I tested the role in DBeaver. The SELECT query worked, but an UPDATE query returned "permission denied for table cards".
+
+This confirms that the role can read data but cannot modify it.
+
+SQL file: `database/07_roles_permissions.sql`
+
+![Permission denied test](screenshots/role_permission_denied.png)
