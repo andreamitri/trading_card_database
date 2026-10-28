@@ -204,3 +204,17 @@ SQL file: `database/05_create_index.sql`
 **After index:**
 
 ![After index](screenshots/index_after.png)
+
+### Transaction
+
+I created a transaction using BEGIN, UPDATE, INSERT, and COMMIT.
+
+The transaction moves one Pikachu card from Binder A to Binder B.
+
+Before the transaction, Binder A contained 3 Pikachu cards. After the transaction, Binder A contained 2 and Binder B contained 1.
+
+The total remains 3 cards.
+
+SQL file: `database/06_transaction.sql`
+
+![Transaction result](screenshots/transaction_result.png)
